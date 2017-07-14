@@ -1,4 +1,7 @@
 get '/' do
-  # @user = User.find(session[:id])
+  if session[:id]
+    @user = User.find(session[:id])
+  end
+    @events = Event.all
   erb :index
 end

@@ -1,0 +1,17 @@
+<h1> Create a new event here:</h1>
+
+<form action='/users/<%= @user.id %>/events' method="post">
+  <label>Title</label>
+  <input type='text' name='title' />
+  <label>Location</label>
+  <input type='text' name='location' />
+  <label>Date</label>
+  <input type='text' name='date' />
+  <input type='submit' value='Create' />
+</form>
+
+<% if defined? errors %>
+  <% errors.each do |error| %>
+    <%= error %><br/>
+    <% end %>
+<% end %>

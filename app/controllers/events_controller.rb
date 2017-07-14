@@ -17,5 +17,6 @@ end
 
 #show
 get '/users/:user_id/events/:event_id' do
+  @event = Event.find(params[:event_id])
   erb :'/events/show'
 end

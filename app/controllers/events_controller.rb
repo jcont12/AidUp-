@@ -30,10 +30,14 @@ end
 
 #edit
 get '/users/:user_id/events/:event_id/edit' do
+  @user = User.find(params[:user_id])
+  @event = Event.find(params[:event_id])
     erb :'/events/edit'
 end
 
-put '/users/:user_id/events/:event_id' do
-  @event = Event.find(params[:event_id])
-  @event.update_attributes(params)
+post '/users/:user_id/events/:id' do
+  @user = User.find(params[:user_id])
+  @event = Event.find(params[:id])
+  @event.update_attributes(title: params[:title], location: params[:location], date: params[:date], creator_id: params[:user_id])
+  redirect "/users/#{@user.id}/events/#{@event.id}"
 end

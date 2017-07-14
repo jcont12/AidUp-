@@ -1,3 +1,5 @@
 <h1><%= @event.title %></h1>
 <%= @event.location %>
 <%= @event.date %>
+
+<a href='/users/<%= @user.id %>/events/<%= @event.id %>/edit'> Edit event</a><br/>

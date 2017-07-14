@@ -23,8 +23,9 @@ post '/users/:user_id/events' do
 end
 
 #show
-get '/users/:user_id/events/:event_id' do
-  @event = Event.find(params[:event_id])
+get '/users/:user_id/events/:id' do
+  @user = User.find(params[:user_id])
+  @event = Event.find(params[:id])
   erb :'/events/show'
 end
 

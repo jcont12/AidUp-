@@ -1,3 +1,10 @@
+#index
+get '/users/:user_id/events' do
+  @events = Event.where(creator_id: params[:user_id])
+  @user = User.find(params[:user_id])
+  erb :'/events/index'
+end
+
 #new
 get '/users/:user_id/events/new' do
   @user = User.find(params[:user_id])
@@ -9,7 +16,7 @@ post '/users/:user_id/events' do
   @event = Event.new(title: params[:title], location: params[:location], date: params[:date], creator_id: params[:user_id])
   if @event.valid?
     @event.save!
-    redirect '/'
+    redirect "/users/#{:params[:user_id]}/events/#{@event.id}"
   else
     erb :'/events/new', locals: { errors: @event.errors.full_messages }
   end
@@ -19,4 +26,14 @@ end
 get '/users/:user_id/events/:event_id' do
   @event = Event.find(params[:event_id])
   erb :'/events/show'
+end
+
+#edit
+get '/users/:user_id/events/:event_id/edit' do
+    erb :'/events/edit'
+end
+
+put '/users/:user_id/events/:event_id' do
+  @event = Event.find(params[:event_id])
+  @event.update_attributes(params)
 end

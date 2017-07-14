@@ -1,0 +1,8 @@
+<h1> Welcome to your events! </h1>
+
+<% @events.each do |event| %>
+  <%= event.title %><br/>
+  <%= event.location %><br/>
+  <%= event.date %><br/><br/>
+  <a href='/users/<%= @user.id %>/events/<%= event.id %>/edit'> Edit event</a><br/>
+<% end %>

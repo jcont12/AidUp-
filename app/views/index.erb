@@ -1,12 +1,13 @@
   <h1> Welcome to Aidup!</h1>
 
   <% if session[:id] %>
-<a href='/users/<%= @user.id %>/events/new'> Post new Event!</a>
+<a href='/users/<%= @user.id %>/events/new'> Post new Event!</a><br/>
+<a href='/users/<%= @user.id %>/events'> Go to your posted Events</a><br/><br/>
   <% end %>
 
 <% @events.each do |event| %>
-  <%= event.title %>
-  <%= event.location %>
-  <%= event.date %>
-  <a href='/users/<%= @user.id %>/events/<%= event.id  %>'> See more...</a>
+  <%= event.title %><br/>
+  <%= event.location %><br/>
+  <%= event.date %><br/><br/>
+  <a href='/users/<%= @user.id %>/events/<%= event.id  %>'> See more...</a><br/>
   <% end %>

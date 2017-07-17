@@ -5,4 +5,9 @@
   <%= event.location %><br/>
   <%= event.date %><br/><br/>
   <a href='/users/<%= event.creator_id%>/events/<%= event.id %>/edit'> Edit event</a><br/>
+  <form action='/users/<%= event.creator_id%>/events/<%= event.id %>' method='post'>
+    <input type='hidden' name='_method' value='delete' />
+    <input type='submit' value='Delete post' />
+  </form>
+
 <% end %>

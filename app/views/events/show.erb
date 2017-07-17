@@ -4,4 +4,8 @@
 
 <% if session[:id] %>
 <a href='/users/<%= @user.id %>/events/<%= @event.id %>/edit'> Edit event</a><br/>
+<form action='/users/<%= @user.id %>/events/<%= @event.id %>' method='post'>
+  <input type='hidden' name='_method' value='delete' />
+  <input type='submit' value='Delete post' />
+</form>
 <% end %>

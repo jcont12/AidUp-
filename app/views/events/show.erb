@@ -1,3 +1,7 @@
+<% if session[:id] %>
+<a href='/users/<%= @user.id %>/events/new'> Post new Event!</a><br/>
+<% end %>
+
 <h1><%= @event.title %></h1>
 <%= @event.location %>
 <%= @event.date %>
@@ -7,5 +11,5 @@
 <form action='/users/<%= @user.id %>/events/<%= @event.id %>' method='post'>
   <input type='hidden' name='_method' value='delete' />
   <input type='submit' value='Delete post' />
-</form>
+</form><br/><br/>
 <% end %>

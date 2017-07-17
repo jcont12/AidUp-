@@ -16,7 +16,7 @@ post '/users/:user_id/events' do
   @event = Event.new(title: params[:title], location: params[:location], date: params[:date], creator_id: params[:user_id])
   if @event.valid?
     @event.save!
-    redirect "/users/#{:params[:user_id]}/events/#{@event.id}"
+    redirect "/users/#{params[:user_id]}/events/#{@event.id}"
   else
     erb :'/events/new', locals: { errors: @event.errors.full_messages }
   end
@@ -44,3 +44,9 @@ post '/users/:user_id/events/:id' do
 end
 
 #delete
+delete '/users/:user_id/events/:id' do
+  @user = User.find(params[:user_id])
+  @event = Event.find(params[:id])
+  @event.destroy!
+  redirect "users/#{@user.id}/events"
+end

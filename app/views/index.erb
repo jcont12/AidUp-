@@ -9,5 +9,5 @@
   <%= event.title %><br/>
   <%= event.location %><br/>
   <%= event.date %><br/><br/>
-  <a href='/users/<%= @user.id %>/events/<%= event.id  %>'> See more...</a><br/>
+  <a href='/users/<%= event.creator_id %>/events/<%= event.id  %>'> See more...</a><br/>
   <% end %>

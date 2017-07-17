@@ -2,4 +2,6 @@
 <%= @event.location %>
 <%= @event.date %>
 
+<% if session[:id] %>
 <a href='/users/<%= @user.id %>/events/<%= @event.id %>/edit'> Edit event</a><br/>
+<% end %>

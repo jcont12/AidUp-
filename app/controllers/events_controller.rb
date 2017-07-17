@@ -42,3 +42,5 @@ post '/users/:user_id/events/:id' do
   @event.update_attributes(title: params[:title], location: params[:location], date: params[:date], creator_id: params[:user_id])
   redirect "/users/#{@user.id}/events/#{@event.id}"
 end
+
+#delete

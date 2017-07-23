@@ -14,6 +14,9 @@ gem 'rake'
 gem 'bcrypt'
 
 gem 'shotgun', '~>0.9.1'
+gem 'thin'
+
+gem 'newrelic_rpm'
 
 group :test do
   gem 'shoulda-matchers'
